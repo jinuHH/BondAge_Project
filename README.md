@@ -2,10 +2,16 @@
 소아/청소년의 왼손 X-ray 사진을 이용해서 뼈 나이를 예측
 
 ## 개발 환경
-python colab jupyter tensorflow pytorch ...
+```
+python == 3.12.1
+tensorflow == 2.15.0
+pytorch == 2.1.0
+jupyter
+colab
+```
 
 ## 프로젝트 설명
-소아/청소년의 왼손 X-ray 이미지 데이터를 활용하여 골연령을 예측합니다. 왼쪽 손목과 손가락 관절 X-ray를 ROI(Region Of Interest)로 Object Detection 하여 골 연령을 예측합니다. 예측된 골연령과 질병관리청에서 제공된 '소아 청소년 성장도표'를 활용하여 18세 기준 예상 신장을 도출합니다.
+소아/청소년의 왼손 X-ray 이미지 데이터를 활용하여 골연령을 예측합니다. 왼쪽 손목과 손가락 관절 X-ray를 ROI(Region Of Interest)로 Object Detection 하여 골 연령을 예측합니다.
 
 ## 프로젝트 절차
 ### 데이터 통합 및 전처리
