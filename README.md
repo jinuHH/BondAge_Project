@@ -37,8 +37,6 @@ YOLOv5 모델을 통해 객체를 검출하기 위해서는 label 데이터가 �
 ### 딥러닝 모델 학습 / Attention-Xception
 검출된 LMCP, MMCP, TMCP, CARPAL 데이터를 생성한 Attention-Xception 모델에 학습시킵니다. 모델의 정확도 평가는 회귀에 사용하는 지표인 MAE와 MSE를 사용하였습니다.
 
-![Architecture-of-TjNet](https://github.com/jinuHH/BoneAge_Project/assets/105624646/80c89dcc-a319-4c22-b51d-5061fd7ffa3a)
-
 ![화면 캡처 2024-02-12 022232](https://github.com/jinuHH/BoneAge_Project/assets/105624646/59db6aa3-c300-4e7d-aaa4-d709de5987e6)
 
 ---
