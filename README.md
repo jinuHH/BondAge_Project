@@ -34,8 +34,8 @@ YOLOv5 모델을 통해 객체를 검출하기 위해서는 label 데이터가 �
 
 ---
 
-### 딥러닝 모델 학습 / TJNet
-검출된 LMCP, MMCP, TMCP, CARPAL 데이터를 TJNet 모델에 대입하여 학습시킵니다. TJNet은 Xception network, Residual, Attention으로 구성된 모델입니다. 모델의 정확도 평가는 회귀에 사용하는 지표인 MAE와 MSE를 사용하였습니다.
+### 딥러닝 모델 학습 / Attention-Xception
+검출된 LMCP, MMCP, TMCP, CARPAL 데이터를 생성한 Attention-Xception 모델에 학습시킵니다. 모델의 정확도 평가는 회귀에 사용하는 지표인 MAE와 MSE를 사용하였습니다.
 
 ![Architecture-of-TjNet](https://github.com/jinuHH/BoneAge_Project/assets/105624646/80c89dcc-a319-4c22-b51d-5061fd7ffa3a)
 
@@ -43,7 +43,7 @@ YOLOv5 모델을 통해 객체를 검출하기 위해서는 label 데이터가 �
 
 ---
 
-### 결과
+### 모델 결과
 학습된 모델 평가 결과 mae = 0.589 로 전문의 판단과 예측 모델의 판단 결과의 차이는 약 0.589년 차이를 보였습니다.
 기존 데이터의 골연령 단위는 years이므로, 단위를 months로 변경하였습니다. 즉, 전문의의 판단과 약 7.1개월의 차이를 보였습니다.
 
@@ -51,3 +51,12 @@ YOLOv5 모델을 통해 객체를 검출하기 위해서는 label 데이터가 �
 
 ![화면 캡처 2024-02-12 022314](https://github.com/jinuHH/BoneAge_Project/assets/105624646/ad627823-e70e-48c1-a767-4f6085ee49de)
 <https://www.researchgate.net/publication/351221264_Intelligent_Bone_Age_Assessment_An_Automated_System_to_Detect_a_Bone_Growth_Problem_Using_Convolutional_Neural_Networks_with_Attention_Mechanism>
+
+---
+
+### 신장 예측 / LMS Height Prediction
+질병관리청에서 제공된 '소아 청소년 성장도표' 분석을 통해 예측된 골연령을 활용하여 18세 기준 예상 신장을 도출하였습니다. 성장도표에는 각 연령의 신장과 그에 따른 백분위수가 포함되어 있습니다. 예측을 위해 LMS기법을 적용했습니다. LMS기법은 연령별 백분위수를 정규분포로 변환시키는 L(Box-Cox Power), M(Median), S(Coefficient of Variation, CV) 값을 찾는 과정입니다. 이를 활용하여 평균정규분포(Z) 데이터를 생성하고, 18세 기준 L, M, S 값과 평균정규분포(Z)로 검사자의 18세 예측 신장값을 도출했습니다. 백분위 범위에서 벗어난 신장값이 도출되면 비정상적인 성장으로 판단하여 Abnormal 값으로 판단했습니다.
+
+2007년 소아 청소년 표준성장도표 소책자 :
+<https://www.kdca.go.kr/contents.es?mid=a20303030400>
+
